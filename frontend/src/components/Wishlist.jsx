@@ -1,0 +1,86 @@
+import React, { useState } from 'react'
+
+const Wishlist = () => {
+    const [wishlist, setWishlist] = useState(
+        JSON.parse(localStorage.getItem("wishlistItems")) || []
+      );
+
+      const removeItem = (id) => {
+        const index = wishlist.findIndex((item) => item.id === id);
+        const copyCard = [...wishlist];
+
+        if (index > -1) {
+          copyCard.splice(index, 1);
+          setWishlist(copyCard);
+          localStorage.setItem("wishlistItems", JSON.stringify(copyCard));
+        }
+      };
+
+
+      return (
+        <>
+          <table className="table table-borderless table-shopping-cart">
+            {wishlist?.map((item) => (
+              <>
+                <thead className="text-muted">
+                  <tr className="small text-uppercase">
+                    <th scope="col">Product</th>
+                    <th scope="col" width="120">
+                      Price
+                    </th>
+                    <th scope="col" className="text-right" width="200">
+                      {" "}
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <figure className="itemside">
+                        <div className="aside">
+                          <img src={item.image} className="img-sm" />
+                        </div>
+                        <figcaption className="info">
+                          <h6 className="title text-dark">{item.name}</h6>
+                        </figcaption>
+                      </figure>
+                    </td>
+                    <td>
+                      <div className="price-wrap">
+                        <var className="price">
+                          $
+                          {item.discount !== 0.0
+                            ? item.discount * item.quantity
+                            : item.price * item.quantity}
+                        </var>
+                      </div>
+                    </td>
+                    <td className="text-right">
+                      <a
+                        data-original-title="Save to Wishlist"
+                        title=""
+                        href=""
+                        className="btn btn-light mr-2"
+                        data-toggle="tooltip"
+                      >
+                        {" "}
+                        <i className="fa fa-heart"></i>
+                      </a>
+                      <button
+                        className="btn btn-light"
+                        onClick={() => removeItem(item.id)}
+                      >
+                        {" "}
+                        Remove
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </>
+            ))}
+          </table>
+        </>
+      );
+}
+
+export default Wishlist

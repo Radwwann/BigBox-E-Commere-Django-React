@@ -1,0 +1,193 @@
+{% extends "./base.html" %}
+ 
+ 
+
+{% load static %}
+{% block title %}BIGBOX{% endblock %}
+
+
+<meta name="referrer" content="no-referrer-when-downgrade">
+
+
+{% block content %}
+
+
+
+<div class="slideshow-container">
+  {% for slide in slide %}
+  <img class="slideshow-image" src="{{ slide.image.url }}" alt="{{ slide.title }}" style="object-fit: cover;
+  width: 100%;
+  height: 600px;
+  object-position:center;">
+  {% endfor %}
+  <a class="prev" onclick="plusSlides(-1)">❮</a>
+  <a class="next" onclick="plusSlides(1)">❯</a>
+</div>
+
+
+  
+
+{% endblock %}
+
+
+
+
+{% block list_of_products %} 
+
+<div id="laptops" class="section bg-light">
+  <div class="container">
+    <h2 class="text-center text-uppercase font-weight-bold mb-5">Laptops</h2>
+    
+    <div class="row">
+      {% for laptop in laptops %}
+      {% if laptop.discount_percentage %}
+      
+        <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+          <div class="card h-100 card-hover">
+            <div class="ribbon-corner" >{{laptop.discount_percentage}} %</div>
+            <img src="{{  laptop.image.url }}" alt="{{ laptop.Product_Name }}" class="card-img-top" style="height: 200px; object-fit: cover;">
+            <div class="card-body">
+              <h3 class="card-title text-truncate">{{ laptop.Product_Name }}</h3>
+              <p class="card-text font-weight-bold h4 text-primary">${{ laptop.price_after_discount }}</p>
+              <div class="wishlist-add-to-cart d-flex align-items-center">
+                <a href="#" class="text-danger mr-3" style=" font-size: 27px;"><i class="fas fa-heart"></i></a>
+                
+              </div>
+            </div>
+          </div>
+        </div> 
+      {% else %}
+        <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+          <div class="card h-100 card-hover">
+            <img src="{{  laptop.image.url }}" alt="{{ laptop.Product_Name }}" class="card-img-top" style="height: 200px; object-fit: cover;">
+            <div class="card-body">
+              <h3 class="card-title text-truncate">{{ laptop.Product_Name }}</h3>
+              <p class="card-text font-weight-bold h4 text-primary">${{ laptop.price }}</p>
+              <div class="wishlist-add-to-cart d-flex align-items-center">
+                <a href="#" class="text-danger mr-3" style=" font-size: 27px;"><i class="fas fa-heart"></i></a>
+
+               
+                  <button  type="submit" class="btn btn-primary add-to-cart px-4" style="margin-left: 100px;"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<!-- Phones Section -->
+<div id="phones" class="section bg-light">
+  <div class="container">
+    <h2 class="text-center text-uppercase font-weight-bold mb-5">Phones</h2>
+
+    
+    <div class="row">
+      {% for phone in phones %}
+      {% if phone.discount_percentage %}
+      
+        <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+          <div class="card h-100 card-hover">
+            <div class="ribbon-corner" >{{phone.discount_percentage}} % </div>
+            <img src="{{  phone.image.url }}" alt="{{ phone.Product_Name }}" class="card-img-top" style="height: 200px; object-fit: cover;">
+            <div class="card-body">
+              <h3 class="card-title text-truncate">{{ phone.Product_Name }}</h3>
+              <p class="card-text font-weight-bold h4 text-primary">${{ phone.price_after_discount }}</p>
+              <div class="wishlist-add-to-cart d-flex align-items-center">
+                <a href="#" class="text-danger mr-3" style=" font-size: 27px;"><i class="fas fa-heart"></i></a>
+                <button class="btn btn-primary add-to-cart px-4" style="margin-left: 100px;"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </div> 
+      {% else %}
+        <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+          <div class="card h-100 card-hover">
+            <img src="{{  phone.image.url }}" alt="{{ phone.Product_Name }}" class="card-img-top" style="height: 200px; object-fit: cover;">
+            <div class="card-body">
+              <h3 class="card-title text-truncate">{{ phone.Product_Name }}</h3>
+              <p class="card-text font-weight-bold h4 text-primary">${{ phone.price }}</p>
+              <div class="wishlist-add-to-cart d-flex align-items-center">
+                <a href="#" class="text-danger mr-3" style=" font-size: 27px;"><i class="fas fa-heart"></i></a>
+                <button class="btn btn-primary add-to-cart px-4" style="margin-left: 100px;"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+    
+
+<div class="elfsight-app-2f83b1b2-554f-47d9-8e50-d8461fb8c72d"></div>
+
+<br>
+
+
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+  (function(){
+  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+  s1.async=true;
+  s1.src='https://embed.tawk.to/63c8398e47425128790e68c8/1gn321ntn';
+  s1.charset='UTF-8';
+  s1.setAttribute('crossorigin','*');
+  s0.parentNode.insertBefore(s1,s0);
+  })();
+  </script>
+  <!--End of Tawk.to Script-->
+
+
+
+
+
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--  Brands pic -->
+
+{% block scroll_Brands %}
+
+
+
+<marquee behavior="scroll" direction="left">
+  {% for Brand in Brand %}
+  <div class="logo_container" style="display: inline-block; margin: 0 10px;">
+    <a href="{% url 'shop:brand_product_list' Brand.id %}">
+
+      <img src="{{  Brand.brand_logo.url }}" alt="{{ Brand.brand_name }}" width="100" height="100"></a>
+  </div>
+  {% endfor %}
+  </marquee>
+
+  
+<br><br>
+
+
+{% endblock %}
+
+<!-- end brand -->

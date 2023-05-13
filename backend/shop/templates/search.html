@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+
+       
+        <h3 >search result {{ request.Get.q }}</h3>
+
+       
+
+
+        <div class="row">
+            {% for Product in data %}
+            {% if Product.discount_percentage %}
+            
+              <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+                <div class="card h-100 card-hover">
+                  <div class="ribbon-corner" >{{Product.discount_percentage}} % </div>
+                  <img src="{{  Product.image.url }}" alt="{{ Product.Product_Name }}" class="card-img-top" style="height: 200px; object-fit: cover;">
+                  <div class="card-body">
+                    <h3 class="card-title text-truncate">{{ Product.Product_Name }}</h3>
+                    <p class="card-text font-weight-bold h4 text-primary">${{ Product.price_after_discount }}</p>
+                    <div class="wishlist-add-to-cart d-flex align-items-center">
+                      <a href="#" class="text-danger mr-3" style=" font-size: 27px;"><i class="fas fa-heart"></i></a>
+                      <button class="btn btn-primary add-to-cart px-4" style="margin-left: 100px;"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                    </div>
+                  </div>
+                </div>
+              </div> 
+            {% else %}
+              <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+                <div class="card h-100 card-hover">
+                  <img src="{{  Product.image.url }}" alt="{{ Product.Product_Name }}" class="card-img-top" style="height: 200px; object-fit: cover;">
+                  <div class="card-body">
+                    <h3 class="card-title text-truncate">{{ Product.Product_Name }}</h3>
+                    <p class="card-text font-weight-bold h4 text-primary">${{ Product.price }}</p>
+                    <div class="wishlist-add-to-cart d-flex align-items-center">
+                      <a href="#" class="text-danger mr-3" style=" font-size: 27px;"><i class="fas fa-heart"></i></a>
+                      <button class="btn btn-primary add-to-cart px-4" style="margin-left: 100px;"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+
+    
+
+
+
+
+
+
+    </body>
+</html>

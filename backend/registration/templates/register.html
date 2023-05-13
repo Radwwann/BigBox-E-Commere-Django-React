@@ -1,0 +1,45 @@
+
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% load static %}
+      <link rel="stylesheet" type="text/css" href="{% static 'register/css/register.css' %}">
+         <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+       -->
+    </head>
+    <body>
+
+        <div class="container"> <main>
+
+            <div class="form signup-form"> <h2>Create Account</h2>
+                
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                 
+                   <p> <button type="submit" class="btn btn-primary">Register</button><p>
+                </form>
+                 <p class="pp"> ALready a user?</p>
+                 <li class="nav-item">
+                    <a class="nav-link" href=" {% url 'registration:login_view' %}"><i class="fas fa-user" style="color:black;"> click here</i></a>
+                  
+                  </li>
+           
+            </div>
+           
+         
+           
+            </div>
+
+        
+<script src="{% static 'register/js/register.js' %}"></script>
+<script src="{% static 'shop/js/bootstrap.bundle.min.js' %}"></script>
+    </body>
+</html>

@@ -1,0 +1,33 @@
+body {
+    text-align: center;
+    padding: 40px 0;
+    background: #EBF0F5;
+  }
+    h1 {
+      color:  #2196F3;
+      font-family: "Nunito Sans",  "Helvetica Neue",  sans-serif;
+       font-weight: 901;
+      font-size: 41px;
+       margin-bottom: 11px;
+    }
+    p {
+      color: #2196F3;
+      font-family: "Nunito Sans", 
+      "Helvetica Neue", sans-serif;
+      font-size: 20px;
+      margin: 0;
+    }
+  i {
+    color: #2196F3;
+     font-size: 101px;
+      line-height: 201px;
+     margin-left:-15px;
+  }
+  .card {
+     background: white;
+     padding: 61px;
+    border-radius: 4px;
+     box-shadow: 0 3px 4px #C8D0D8;
+     display: inline-block;
+    margin: 0 auto;
+  }

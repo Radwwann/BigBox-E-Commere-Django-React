@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html>
+  
+
+
+
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Reset your password</title>
+        <meta name="description" content="">
+        {% load static %}
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="{% static 'register/css/sign_in.css' %}">
+      </head>
+   
+    <body>
+      
+   
+    <body>
+      <div class="form-container">
+        
+        <form method="post">
+          {% csrf_token %}
+          <h1>Login</h1>
+          {{ form.as_p }}
+          <button type="submit">Login</button>
+          <p><a href="{% url 'registration:password_reset' %}">Forgot password?</a>
+          <p>
+            <a class="nav-link" href="{% url 'registration:register' %}">
+              <i class="fas fa-user" style="color:black;">New user? Register</i>
+            </a>
+          </p>
+          <a href="#" class="google-btn">Log in with Google</a>
+        </form>
+      </div>
+
+
+
+
+
+  
+    </body>
+
+
+    </html>
